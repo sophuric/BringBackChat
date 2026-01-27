@@ -1,11 +1,12 @@
 plugins {
     java
     alias(libs.plugins.fabric.loom)
+    alias(libs.plugins.minotaur)
 }
 
 val modId = property("mod.id").toString()
 val modGroup = property("mod.group").toString()
-version = property("mod.version").toString()
+val version = property("mod.version").toString()
 
 base.archivesName = "${modId}-${version}"
 
@@ -32,7 +33,7 @@ repositories {
             includeGroup("com.terraformersmc")
         }
     }
-	
+
     exclusiveContent {
         forRepository {
             maven("https://maven.parchmentmc.org") {
@@ -87,3 +88,17 @@ tasks.withType<JavaCompile> {
 }
 
 tasks.jar { from("LICENSE") { rename { "${it}_${base.archivesName}" } } }
+
+modrinth {
+    token.set(System.getenv("MODRINTH_TOKEN"))
+    projectId.set("bringbackchat")
+    versionNumber.set(version)
+    versionType.set("release")
+    uploadFile.set(tasks.remapJar)
+    gameVersions.addAll(libs.versions.minecraft.get())
+    loaders.add("fabric")
+    dependencies {
+        required.project("fabric-api")
+    }
+    syncBodyFrom = rootProject.file("README.md").readText()
+}
