@@ -1,0 +1,20 @@
+[versions]
+minecraft = "1.21.8" # Change this in ParchmentMC too
+
+fabric_loader = "0.18.4"
+fabric_loom = "1.14-SNAPSHOT"
+
+fabric_api = "0.136.1+1.21.8"
+
+parchment = "2025.09.14"
+
+[plugins]
+fabric_loom = { id = "fabric-loom", version.ref = "fabric_loom" }
+
+[libraries]
+minecraft = { group = "mojang", name = "minecraft", version.ref = "minecraft" }
+
+fabric_loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric_loader" }
+fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric_api" }
+
+parchment = { group = "org.parchmentmc.data", name = "parchment-1.21.8", version.ref = "parchment"}

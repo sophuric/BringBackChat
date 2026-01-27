@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "bringbackchat",
+  "version": "${mod_version}",
+  "name": "UserFlags",
+  "description": "Bypass Microsoft account settings and allow chat regardless. This aims to bypass the mandatory privacy-invasive \"age verification\" required to chat in some countries.",
+  "authors": [
+    "sophur"
+  ],
+  "contact": {
+    "sources": "https://github.com/sophuric/BringBackChat"
+  },
+  "license": "MPL-2.0",
+  "icon": "assets/bringbackchat/icon.png",
+  "environment": "client",
+  "mixins": [
+    {
+      "config": "bringbackchat.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_api_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=21"
+  }
+}
