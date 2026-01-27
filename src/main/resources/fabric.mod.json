@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "bringbackchat",
+  "id": "${mod_id}",
   "version": "${mod_version}",
   "name": "Bring Back Chat",
   "description": "Bypass Microsoft account settings and allow chat regardless. This aims to bypass the mandatory privacy-invasive \"age verification\" required to chat in some countries.",

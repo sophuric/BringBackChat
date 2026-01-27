@@ -87,7 +87,7 @@ tasks.withType<JavaCompile> {
     options.release = 21
 }
 
-tasks.jar { from("LICENSE") { rename { "${it}_${base.archivesName}" } } }
+tasks.jar { from("LICENSE") { rename { "${it}_${base.archivesName.get()}" } } }
 
 modrinth {
     token.set(System.getenv("MODRINTH_TOKEN"))
