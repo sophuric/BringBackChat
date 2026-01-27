@@ -1,12 +1,12 @@
 [versions]
-minecraft = "1.21.8" # Change this in ParchmentMC too
+minecraft = "1.21.5" # Change this in ParchmentMC too
 
 fabric_loader = "0.18.4"
 fabric_loom = "1.14-SNAPSHOT"
 
-fabric_api = "0.136.1+1.21.8"
+fabric_api = "0.128.2+1.21.5"
 
-parchment = "2025.09.14"
+parchment = "2025.06.15"
 
 minotaur = "2.+"
 
@@ -20,4 +20,4 @@ minecraft = { group = "mojang", name = "minecraft", version.ref = "minecraft" }
 fabric_loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric_loader" }
 fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric_api" }
 
-parchment = { group = "org.parchmentmc.data", name = "parchment-1.21.8", version.ref = "parchment" }
+parchment = { group = "org.parchmentmc.data", name = "parchment-1.21.5", version.ref = "parchment" }
