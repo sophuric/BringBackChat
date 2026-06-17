@@ -33,33 +33,13 @@ repositories {
             includeGroup("com.terraformersmc")
         }
     }
-
-    exclusiveContent {
-        forRepository {
-            maven("https://maven.parchmentmc.org") {
-                name = "ParchmentMC"
-            }
-        }
-
-        filter {
-            includeGroup("org.parchmentmc.data")
-        }
-    }
 }
 
 dependencies {
     minecraft(libs.minecraft)
 
-    @Suppress("UnstableApiUsage")
-    mappings(
-        loom.layered {
-            officialMojangMappings()
-            parchment(libs.parchment)
-        }
-    )
-
-    modImplementation(libs.fabric.loader)
-    modImplementation(libs.fabric.api)
+    implementation(libs.fabric.loader)
+    implementation(libs.fabric.api)
 }
 
 tasks.processResources {
@@ -78,13 +58,13 @@ tasks.processResources {
 java {
     withSourcesJar()
 
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
 }
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
-    options.release = 21
+    options.release = 25
 }
 
 tasks.jar { from("LICENSE") { rename { "${it}_${base.archivesName.get()}" } } }
@@ -94,7 +74,7 @@ modrinth {
     projectId.set("bringbackchat")
     versionNumber.set(version)
     versionType.set("release")
-    uploadFile.set(tasks.remapJar)
+    uploadFile.set(tasks.jar)
     gameVersions.addAll(libs.versions.minecraft.get())
     loaders.add("fabric")
     dependencies {
