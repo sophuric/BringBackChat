@@ -34,29 +34,13 @@ repositories {
         }
     }
 
-    exclusiveContent {
-        forRepository {
-            maven("https://maven.parchmentmc.org") {
-                name = "ParchmentMC"
-            }
-        }
-
-        filter {
-            includeGroup("org.parchmentmc.data")
-        }
-    }
 }
 
 dependencies {
     minecraft(libs.minecraft)
 
     @Suppress("UnstableApiUsage")
-    mappings(
-        loom.layered {
-            officialMojangMappings()
-            parchment(libs.parchment)
-        }
-    )
+    mappings(loom.layered { officialMojangMappings() })
 
     modImplementation(libs.fabric.loader)
     modImplementation(libs.fabric.api)
